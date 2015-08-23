@@ -1,0 +1,123 @@
+﻿@using TraumenAuto.Models;
+@using DataLayer;
+
+
+    @{
+        ViewBag.Title = "Index";
+    }
+
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#Model").prop("disabled", true);
+            $("#Maker").change(function () {
+                if ($("#Maker").val() != "Select") {
+                    var MakerOptions = {};
+                    MakerOptions.url = "/Cars/Models";
+                    MakerOptions.type = "POST";
+                    MakerOptions.data = JSON.stringify({ Maker: $("#Maker").val() });
+                    MakerOptions.datatype = "json";
+                    MakerOptions.contentType = "application/json";
+                    MakerOptions.success = function (ModelList) {
+                        $("#Model").empty();
+                        for (var i = 0; i < ModelList.length; i++) {
+                            $("#Model").append("<option>" + ModelList[i] + "</option>");
+                        }
+                        $("#Model").prop("disabled", false);
+                    };
+                    MakerOptions.error = function () { alert("Error in Getting Model!!"); };
+                    $.ajax(MakerOptions);
+                }
+                else {
+                    $("#Model").empty();
+                    $("#Model").prop("disabled", true);
+                }
+            });
+        });
+    </script>
+
+<style>
+    #content{
+        background-color:aquamarine;
+        background: url("../../Content/Images/cars3.jpg");
+        background-size:1080px 720px;
+        background-repeat:no-repeat;
+    }
+
+    #content-info{
+        padding:50px;
+    }
+
+    .title{
+        float:left;
+    }
+
+    .valueContainer{
+        position:relative;
+        padding-left: 15px;
+        text-indent: 6em;
+    }
+
+    .labelContainer{ padding-left:15px;}
+
+    #submit-button{
+        padding-top: 15px;
+    }
+
+</style>
+
+    @using (Html.BeginForm("Cars", "Cars", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+    <div id="content" style="height:700px;"> 
+        <div id="content-info">
+           <b style="color:purple"> <h2>TraumenAuto - DreamCars</h2></b>
+            <!--  <img src="~/Content/Images/cars3.jpg" width="1200" height="700" /> -->
+            <hr />
+            @Html.ValidationSummary()
+            <div class="form-group">
+            <b style="color:saddlebrown">
+                @Html.Label("Select Maker:", new { @class = "col-md-2 control-label" })</b>
+                <div class="col-md-10">
+                    @Html.DropDownList("Maker", ViewData["MakerName"] as SelectList, new { @class = "form-control" })
+                </div>
+            </div><br />
+            <div class="form-group">
+                <b style="color:saddlebrown">
+                    @Html.Label("Select Model:", new { @class = "col-md-2 control-label" })</b>
+                    <div class="col-md-10">
+                        <select id="Model" , name="name"></select>
+                    </div>
+</div>
+            <br>
+            <div class="form-group"></div>
+            <div class="formRowContainer">
+                <div class="labelContainer">
+                    <div class="title"><b style="color:saddlebrown">Enter zipcode:</b></div> 
+                    <div class="valueContainer">
+                        <input type="text" placeholder="Your zipcode" id="Zipcode" name="zipcode">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group"></div>
+            <div class="formRowContainer">
+                <div class="labelContainer">
+                    <div class="title"> <b style="color:saddlebrown">Enter Distance:</b></div>
+                    <div class="valueContainer">
+                        <input type="text" placeholder="In miles" id="distance" name="distance"> <br />
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <p id="submit-button"> <input type="submit" class="btn btn-default" value="Submit" /> </p>
+                </div>
+            </div>
+            
+             
+        </div>
+    </div>
+
+    }

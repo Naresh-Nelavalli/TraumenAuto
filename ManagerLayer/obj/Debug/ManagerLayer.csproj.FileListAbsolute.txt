@@ -1,0 +1,14 @@
+C:\Users\Naresh\documents\visual studio 2013\Projects\TraumenAuto\ManagerLayer\bin\Debug\ManagerLayer.dll
+C:\Users\Naresh\documents\visual studio 2013\Projects\TraumenAuto\ManagerLayer\bin\Debug\ManagerLayer.pdb
+C:\Users\Naresh\documents\visual studio 2013\Projects\TraumenAuto\ManagerLayer\bin\Debug\DataLayer.dll
+C:\Users\Naresh\documents\visual studio 2013\Projects\TraumenAuto\ManagerLayer\bin\Debug\MongoDB.Bson.dll
+C:\Users\Naresh\documents\visual studio 2013\Projects\TraumenAuto\ManagerLayer\bin\Debug\MongoDB.Driver.Legacy.dll
+C:\Users\Naresh\documents\visual studio 2013\Projects\TraumenAuto\ManagerLayer\bin\Debug\MongoDB.Driver.dll
+C:\Users\Naresh\documents\visual studio 2013\Projects\TraumenAuto\ManagerLayer\bin\Debug\MongoDB.Driver.Core.dll
+C:\Users\Naresh\documents\visual studio 2013\Projects\TraumenAuto\ManagerLayer\bin\Debug\DataLayer.pdb
+C:\Users\Naresh\documents\visual studio 2013\Projects\TraumenAuto\ManagerLayer\bin\Debug\MongoDB.Bson.xml
+C:\Users\Naresh\documents\visual studio 2013\Projects\TraumenAuto\ManagerLayer\bin\Debug\MongoDB.Driver.Legacy.xml
+C:\Users\Naresh\documents\visual studio 2013\Projects\TraumenAuto\ManagerLayer\bin\Debug\MongoDB.Driver.xml
+C:\Users\Naresh\documents\visual studio 2013\Projects\TraumenAuto\ManagerLayer\obj\Debug\ManagerLayer.csprojResolveAssemblyReference.cache
+C:\Users\Naresh\documents\visual studio 2013\Projects\TraumenAuto\ManagerLayer\obj\Debug\ManagerLayer.dll
+C:\Users\Naresh\documents\visual studio 2013\Projects\TraumenAuto\ManagerLayer\obj\Debug\ManagerLayer.pdb

@@ -1,0 +1,247 @@
+﻿@model DataLayer.Car
+
+@{
+    ViewBag.Title = "Create";
+}
+
+
+
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#Model").prop("disabled", true);
+        $("#Maker").change(function () {
+            if ($("#Maker").val() != "Select") {
+                var MakerOptions = {};
+                MakerOptions.url = "/Create/Models";
+                MakerOptions.type = "POST";
+                MakerOptions.data = JSON.stringify({ Maker: $("#Maker").val() });
+                MakerOptions.datatype = "json";
+                MakerOptions.contentType = "application/json";
+                MakerOptions.success = function (ModelList) {
+                    $("#Model").empty();
+                    for (var i = 0; i < ModelList.length; i++) {
+                        $("#Model").append("<option>" + ModelList[i] + "</option>");
+                    }
+                    $("#Model").prop("disabled", false);
+                };
+                MakerOptions.error = function () { alert("Error in Getting Model!!"); };
+                $.ajax(MakerOptions);
+            }
+            else {
+                $("#Model").empty();
+                $("#Model").prop("disabled", true);
+            }
+        });
+    });
+</script>
+
+<style>
+    #content {
+        background-color: aquamarine;
+        background: url("../../Content/Images/cars2.jpg");
+        background-size: 1280px 1000px;
+        background-repeat: repeat;
+    }
+
+    #content-info {
+        padding: 50px;
+    }
+
+    .title {
+        float: left;
+    }
+
+    .valueContainer {
+        position: relative;
+        padding-left: 15px;
+        text-indent: 6em;
+    }
+
+    .labelContainer {
+        padding-left: 15px;
+    }
+
+    #submit-button {
+        padding-top: 15px;
+    }
+</style>
+
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+            <div class="form-horizontal">
+                <h2>Enter Car Details Below </h2>
+              
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                <div class="form-group">
+                    <b style="color:cadetblue">
+                        @Html.Label("Select Maker:", new { @class = "col-md-2 control-label" })</b>
+                        <div class="col-md-10">
+                            @Html.DropDownList("Maker", ViewData["MakerName"] as SelectList, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.Maker)
+                        </div>
+</div><br />
+
+                <div class="form-group">
+                    <b style="color:cadetblue">
+                        @Html.Label("Select Model:", new { @class = "col-md-2 control-label" })
+                    </b>
+                        <div class="col-md-10">
+                            <select id="Model" , name="name"></select>
+                            @Html.ValidationMessageFor(model => model.Name)
+                        </div>
+</div>
+
+
+
+
+                <div class="form-group">
+                    <b style="color:cadetblue">
+                        @Html.LabelFor(model => model.Year, htmlAttributes: new { @class = "control-label col-md-2" })
+                    </b>
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Year, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Year, "", new { @class = "text-danger" })
+                        </div>
+</div>
+
+
+                <div class="form-group">
+                    <b style="color:cadetblue">
+                        @Html.LabelFor(model => model.Odometer, htmlAttributes: new { @class = "control-label col-md-2" })
+                    </b>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Odometer, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Odometer, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <b style="color:cadetblue">
+                        @Html.LabelFor(model => model.Price, htmlAttributes: new { @class = "control-label col-md-2" })
+                    </b>
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Price, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })
+                        </div>
+</div>
+
+                <div class="form-group">
+                    <b style="color:cadetblue">
+                        @Html.LabelFor(model => model.Mileage, htmlAttributes: new { @class = "control-label col-md-2" })
+                    </b>
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Mileage, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Mileage, "", new { @class = "text-danger" })
+                        </div>
+</div>
+
+                <div class="form-group">
+                    <b style="color:cadetblue">
+                        @Html.LabelFor(model => model.StoreName, htmlAttributes: new { @class = "control-label col-md-2" })
+                    </b>
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.StoreName, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.StoreName, "", new { @class = "text-danger" })
+                        </div>
+</div>
+
+                <div class="form-group">
+                    <b style="color:cadetblue">
+                        @Html.LabelFor(model => model.Zipcode, htmlAttributes: new { @class = "control-label col-md-2" })
+                    </b>
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Zipcode, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Zipcode, "", new { @class = "text-danger" })
+                        </div>
+</div>
+
+                <div class="form-group">
+                    <b style="color:cadetblue">
+                        @Html.LabelFor(model => model.Color, htmlAttributes: new { @class = "control-label col-md-2" })
+                    </b>
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Color, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Color, "", new { @class = "text-danger" })
+                        </div>
+</div>
+
+                <div class="form-group">
+                    <b style="color:cadetblue">
+                        @Html.LabelFor(model => model.TechDetails.EngineLine, htmlAttributes: new { @class = "control-label col-md-2" })
+                    </b>
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.TechDetails.EngineLine, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.TechDetails.EngineLine, "", new { @class = "text-danger" })
+                        </div>
+</div>
+
+                <div class="form-group">
+                    <b style="color:cadetblue">
+                        @Html.LabelFor(model => model.TechDetails.Transmission, htmlAttributes: new { @class = "control-label col-md-2" })
+                    </b>
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.TechDetails.Transmission, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.TechDetails.Transmission, "", new { @class = "text-danger" })
+                        </div>
+</div>
+
+                <div class="form-group">
+                    <b style="color:cadetblue">
+                        @Html.LabelFor(model => model.TechDetails.FuelType, htmlAttributes: new { @class = "control-label col-md-2" })
+                    </b>
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.TechDetails.FuelType, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.TechDetails.FuelType, "", new { @class = "text-danger" })
+                        </div>
+</div>
+
+                <div class="form-group">
+                    <b style="color:cadetblue">
+                        @Html.LabelFor(model => model.TechDetails.BodyStyle, htmlAttributes: new { @class = "control-label col-md-2" })
+                    </b>
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.TechDetails.BodyStyle, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.TechDetails.BodyStyle, "", new { @class = "text-danger" })
+                        </div>
+</div>
+
+                <div class="form-group">
+                    <b style="color:cadetblue">
+                        @Html.LabelFor(model => model.TechDetails.DriveTrain, htmlAttributes: new { @class = "control-label col-md-2" })
+                    </b>
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.TechDetails.DriveTrain, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.TechDetails.DriveTrain, "", new { @class = "text-danger" })
+                        </div>
+</div>
+
+                <div class="form-group">
+                    <b style="color:cadetblue">
+                        @Html.LabelFor(model => model.TechDetails.Doors, htmlAttributes: new { @class = "control-label col-md-2" })
+                    </b>
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.TechDetails.Doors, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.TechDetails.Doors, "", new { @class = "text-danger" })
+                        </div>
+</div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Sell Now" class="btn btn-default" />
+                    </div>
+                </div>
+            </div>
+       
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+

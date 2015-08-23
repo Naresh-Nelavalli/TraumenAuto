@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TraumenAuto", "TraumenAuto\TraumenAuto.csproj", "{5C2131DF-2F15-4BCB-81BE-CADF72D3F060}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataLayer", "BusinessLayer\DataLayer.csproj", "{A38B653C-D251-4F24-88F1-DFB060A2A9C6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ManagerLayer", "ManagerLayer\ManagerLayer.csproj", "{9B7DC16C-F8E7-4F39-AC22-E5C347AC4776}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5C2131DF-2F15-4BCB-81BE-CADF72D3F060}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C2131DF-2F15-4BCB-81BE-CADF72D3F060}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C2131DF-2F15-4BCB-81BE-CADF72D3F060}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C2131DF-2F15-4BCB-81BE-CADF72D3F060}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A38B653C-D251-4F24-88F1-DFB060A2A9C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A38B653C-D251-4F24-88F1-DFB060A2A9C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A38B653C-D251-4F24-88F1-DFB060A2A9C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A38B653C-D251-4F24-88F1-DFB060A2A9C6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9B7DC16C-F8E7-4F39-AC22-E5C347AC4776}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B7DC16C-F8E7-4F39-AC22-E5C347AC4776}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B7DC16C-F8E7-4F39-AC22-E5C347AC4776}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B7DC16C-F8E7-4F39-AC22-E5C347AC4776}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

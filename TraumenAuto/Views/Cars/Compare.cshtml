@@ -1,0 +1,239 @@
+﻿@using DataLayer;
+@model IEnumerable<DataLayer.Car>
+
+@{
+    ViewBag.Title = "Compare";
+}
+
+<h2>Compare</h2>
+<style type="text/css">
+    .features-column{
+        background-color:#F0FFFF;
+        width:100px;
+       
+    }
+ </style>
+
+<table class="table">
+    <tr style="background-color:#A0CFEC">
+        <th>
+           <b> Features : </b>
+        </th>
+        <th>
+            Car1 :
+        </th>
+        <th>
+            Car2 :
+        </th>
+        <th>
+            Car3 :
+        </th>
+        <th>
+            Car4 :
+        </th>
+       
+    </tr>
+    
+    <tr>
+        <td class="features-column">
+            Name
+        </td>
+        @foreach (var item in Model)
+        {
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+        }
+
+     </tr>
+
+    <tr>
+        <td class="features-column">
+            Year
+        </td>
+        @foreach (var item in Model)
+        {
+            <td>
+                @Html.DisplayFor(modelItem => item.Year)
+            </td>
+        }
+
+    </tr>
+
+    <tr>
+        <td class="features-column">
+            Maker
+        </td>
+        @foreach (var item in Model)
+        {
+            <td>
+                @Html.DisplayFor(modelItem => item.Maker)
+            </td>
+        }
+
+    </tr>
+
+    <tr>
+        <td class="features-column">
+            Odometer
+        </td>
+        @foreach (var item in Model)
+        {
+            <td>
+                @Html.DisplayFor(modelItem => item.Odometer)
+            </td>
+        }
+
+    </tr>
+
+    <tr>
+        <td class="features-column">
+            Price
+        </td>
+        @foreach (var item in Model)
+        {
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+        }
+
+    </tr>
+
+    <tr>
+        <td class="features-column">
+            Mileage
+        </td>
+        @foreach (var item in Model)
+        {
+            <td>
+                @Html.DisplayFor(modelItem => item.Mileage)
+            </td>
+        }
+
+    </tr>
+
+    <tr>
+        <td class="features-column">
+            Color
+        </td>
+        @foreach (var item in Model)
+        {
+            <td>
+                @Html.DisplayFor(modelItem => item.Color)
+            </td>
+        }
+
+    </tr>
+
+
+    <tr>
+        <td class="features-column">
+            EngineLine
+        </td>
+        @foreach (var item in Model)
+        {
+            <td>
+                @Html.DisplayFor(modelItem => item.TechDetails.EngineLine)
+            </td>
+        }
+
+    </tr>
+
+    <tr>
+        <td class="features-column">
+            EngineLine
+        </td>
+        @foreach (var item in Model)
+        {
+            <td>
+                @Html.DisplayFor(modelItem => item.TechDetails.EngineLine)
+            </td>
+        }
+
+    </tr>
+
+    <tr>
+        <td class="features-column">
+            Transmission
+        </td>
+        @foreach (var item in Model)
+        {
+            <td>
+                @Html.DisplayFor(modelItem => item.TechDetails.Transmission)
+            </td>
+        }
+
+    </tr>
+
+
+    <tr>
+        <td class="features-column">
+            BodyStyle
+        </td>
+        @foreach (var item in Model)
+        {
+            <td>
+                @Html.DisplayFor(modelItem => item.TechDetails.BodyStyle)
+            </td>
+        }
+
+    </tr>
+
+
+    <tr>
+        <td class="features-column">
+            DriveTrain
+        </td>
+        @foreach (var item in Model)
+        {
+            <td>
+                @Html.DisplayFor(modelItem => item.TechDetails.DriveTrain)
+            </td>
+        }
+
+    </tr>
+
+
+    <tr>
+        <td class="features-column">
+            FuelType
+        </td>
+        @foreach (var item in Model)
+        {
+            <td>
+                @Html.DisplayFor(modelItem => item.TechDetails.FuelType)
+            </td>
+        }
+
+    </tr>
+
+
+    <tr>
+        <td class="features-column">
+            view CarFax Report
+        </td>
+        @foreach (var item in Model)
+        {
+            <td>
+                @Html.ActionLink("CarFax Details", "CarFax", new { CarName = item.Name, Id = item.Id }) &nbsp;
+            </td>
+        }
+
+    </tr>
+
+    <tr>
+        <td class="features-column">
+            View Default Features
+        </td>
+        @foreach (var item in Model)
+        {
+            <td>
+                @Html.ActionLink("Default Features", "Details", new { CarName = item.Name, Id = item.Id }) 
+            </td>
+        }
+
+    </tr>
+
+</table>
+
+<p>@Html.ActionLink("Back to My Selection", null, null, null, new { href = Request.UrlReferrer })</p>
