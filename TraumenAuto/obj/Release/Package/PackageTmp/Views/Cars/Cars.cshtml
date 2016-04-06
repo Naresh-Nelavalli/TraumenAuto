@@ -1,0 +1,133 @@
+﻿@using DataLayer;
+@model IEnumerable<DataLayer.Car>
+
+@{
+    ViewBag.Title = "Cars";
+}
+
+<h2>Cars</h2>
+
+<p>
+    <b style="icon:auto">
+    @Html.ActionLink("Sell Your Car", "AddNewCar", new { controller = "Create" })</b>
+</p>
+
+<form action="/Cars/Compare" method="post">
+
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Year)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Maker)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Odometer)
+            </th>
+            <th>
+                @Html.ActionLink("Price", "Cars", new { sortOrder = "price" })
+            </th>
+            <th>
+               
+                @Html.ActionLink("Mileage", "Cars", new { sortOrder = "mileage" })
+            </th>
+          
+            <th>
+                @Html.DisplayNameFor(model => model.Zipcode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Color)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TechDetails.EngineLine)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TechDetails.Transmission)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TechDetails.FuelType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TechDetails.BodyStyle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TechDetails.DriveTrain)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TechDetails.Doors)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (Car item in Model)
+        {
+            <tr>
+                <td>
+                    <input type="checkbox" name="CarId" value=@item.Id.ToString() />
+
+                     @Html.ActionLink(item.Name, "Details", new { CarName = item.Name, Id = item.Id })
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Year)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Maker)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Odometer)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Mileage)
+                </td>
+                
+                <td>
+                    @Html.DisplayFor(modelItem => item.Zipcode)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Color)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.TechDetails.EngineLine)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TechDetails.Transmission)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TechDetails.FuelType)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TechDetails.BodyStyle)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TechDetails.DriveTrain)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TechDetails.Doors)
+                </td>
+                <td>
+                    @Html.ActionLink("View CarFax Details", "CarFax", new { CarName = item.Name, Id = item.Id }) &nbsp;
+                    @Html.ActionLink("Default Features", "Details", new { CarName = item.Name, Id = item.Id }) |
+                </td>
+            </tr>
+        }
+
+    </table>
+    
+   
+        <input type="submit" name="submit" value="Compare Cars side by side" /><br>
+    <br/>
+
+    <p>
+        <b style="icon:auto">
+            @Html.ActionLink("Sell Your Car", "AddNewCar", new { controller = "Create" })
+        </b>
+    </p>
+</form>

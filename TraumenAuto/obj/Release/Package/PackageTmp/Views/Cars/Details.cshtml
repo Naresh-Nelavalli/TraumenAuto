@@ -1,0 +1,38 @@
+﻿@model IEnumerable<DataLayer.Feature>
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2 style="color:darkseagreen">Car Detailed Features </h2>
+
+
+<table class="table">
+    <tr>
+        <th style="color:cornflowerblue">
+            @Html.DisplayNameFor(model => model.FeatureName)
+        </th>
+        <th style ="color:cornflowerblue">
+            @Html.DisplayNameFor(model => model.FeatureDesc)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+          <b>  @Html.DisplayFor(modelItem => item.FeatureName) </b>
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FeatureDesc)
+        </td>
+       
+    </tr>
+}
+
+</table>
+<p style="color:orange"> The information on vehicles provided in this service is supplied by the seller or other third parties; 
+    TraumnenAuto is not responsible for the accuracy of such information. TraumenAuto provides this service 
+    and materials without representations or warranties of any kind, either expressed or implied.</p>
+
+<p>@Html.ActionLink("Back to List", null, null, null, new { href = Request.UrlReferrer })</p>
